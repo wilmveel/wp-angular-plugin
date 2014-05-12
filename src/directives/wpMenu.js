@@ -1,38 +1,30 @@
-angular.module('wpAngular').directive("wpMenu", function($log, $http, $compile){
+angular.module('wpAngular').directive("wpMenu", function($log, $http, wpBloginfo){
 	return {
 		transclude: 'element',
-   		priority: 1000,
-    	terminal: true,
-    	$$tlb: true,
+    	scope: {},
 		link: function($scope, $element, $attr, ctrl, $transclude){
 			
 			if($attr.name){
-				$http.get(bloginfo.baseUrl + "/wp-json/menus/" + $attr.name).success(function(data){
+				$http.get(wpBloginfo.baseUrl + "/wp-json/menus/" + $attr.name).success(function(data){
 					$log.debug("Data", data);
 					$scope.items = data;		
 				});
 			}else{
-				$scope.items = $scope.childeren;
+				$scope.items = $scope.$parent.childeren;
 			}
 
-			$scope.$watchCollection('items', function(collection) {
-				
-				var childScope;
-				
+			$scope.$watchCollection("items", function(collection) {
+							
 				angular.forEach(collection, function(item){
 					
-					$log.debug("item", item);
-					childScope = $scope.$new();
+					//Create new scope for every new item and load attributes to the scope
+					var childScope = $scope.$new();
+					angular.forEach(item, function(value, key){
+						childScope[key] = value;
+					});
 
 		      		$transclude(childScope, function(clone) {
-
 		      			$element.parent().append(clone);
-
-						angular.forEach(item, function(v, k){
-							childScope[k] = item[k];
-						});
-						$log.debug("transclude", childScope.title, clone);
-
 		      		});
 		      	});
 		    });

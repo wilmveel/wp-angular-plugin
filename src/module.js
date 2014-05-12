@@ -1,2 +1,6 @@
 angular.module('wpAngular', [])
-.constant('bloginfo', bloginfo);
+.constant('wpBloginfo', bloginfo)
+.run(function($rootScope, $log, wpBloginfo){
+	$log.debug("wpBloginfowpBloginfowpBloginfo", wpBloginfo);
+	$rootScope.bloginfo = wpBloginfo;
+});

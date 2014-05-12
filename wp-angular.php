@@ -21,9 +21,12 @@ include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 add_action('init','wp_angular_init');
 function wp_angular_init() {
 	if( is_plugin_active( 'json-rest-api/plugin.php' ) ) {
+
 	    wp_enqueue_script( 'angular', plugins_url( '/lib/angular/angular.js', __FILE__ ));
+        wp_enqueue_script( 'angular-route', plugins_url( '/lib/angular/angular-route.js', __FILE__ ));
 
 	    wp_enqueue_script( 'wp-angular-module', plugins_url( '/src/module.js', __FILE__ ));
+        wp_enqueue_script( 'wp-angular-directives-post', plugins_url( '/src/directives/wpPost.js', __FILE__ ));
 	    wp_enqueue_script( 'wp-angular-directives-posts', plugins_url( '/src/directives/wpPosts.js', __FILE__ ));
         wp_enqueue_script( 'wp-angular-directives-menu', plugins_url( '/src/directives/wpMenu.js', __FILE__ ));
         

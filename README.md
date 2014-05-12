@@ -1,6 +1,7 @@
 wp-angular
 ==========
 
+Wp-Angular is a Wordpress plugin wich helps you to write you wordpress templated in a declaretive and asynchronous way. This plugin intergrates wordpress with angular and provides a set of directies to access the content from the 
 
 
 A set of Angular directives to make wordpress content availible in Angular. Wp-Angular makes it easy to write your templates in a sturctured way by separating model view and controllers. Angular also provides tool load content in a asynchrous way wich makes your website faster end more responsive.
@@ -20,7 +21,7 @@ Install the JSON REST API plugin and drop this directory in the plugins director
 
 Core
 ====
-The module name of the angular app is: wp-angular
+The mail module of the angular app is name: wpAngular
 The following bloginfo variable are availible as an constant:
 - baseUrl : the base url of the wordpress installation
 - templateUrl : the url of your current template
