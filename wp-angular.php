@@ -30,6 +30,7 @@ function wp_angular_init() {
 	    wp_enqueue_script( 'wp-angular-directives-posts', plugins_url( '/src/directives/wpPosts.js', __FILE__ ));
         wp_enqueue_script( 'wp-angular-directives-page', plugins_url( '/src/directives/wpPage.js', __FILE__ ));
         wp_enqueue_script( 'wp-angular-directives-menu', plugins_url( '/src/directives/wpMenu.js', __FILE__ ));
+        wp_enqueue_script( 'wp-angular-directives-media', plugins_url( '/src/directives/wpMedia.js', __FILE__ ));
         
         // Make blog info availible as constant in angular
         wp_localize_script( 'wp-angular-module', 'bloginfo', load_bloginfo());
