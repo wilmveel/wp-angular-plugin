@@ -32,8 +32,8 @@ angular.module('wpAngular').directive("wpMedia", function($log, $http, $sce, $co
 		      		$element.empty();	
 		      		$transclude(childScope, function(clone) {
 		      			
-		      			$log.debug(clone.length);
-		      			if(clone.length > 1){
+		      			$log.debug(clone.children().length);
+		      			if(clone.children().length > 0){
 							$element.append(clone);		
 		      			} else {
 		      				
