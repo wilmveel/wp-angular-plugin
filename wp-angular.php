@@ -28,6 +28,7 @@ function wp_angular_init() {
 	    wp_enqueue_script( 'wp-angular-module', plugins_url( '/src/module.js', __FILE__ ));
         wp_enqueue_script( 'wp-angular-directives-post', plugins_url( '/src/directives/wpPost.js', __FILE__ ));
 	    wp_enqueue_script( 'wp-angular-directives-posts', plugins_url( '/src/directives/wpPosts.js', __FILE__ ));
+        wp_enqueue_script( 'wp-angular-directives-page', plugins_url( '/src/directives/wpPage.js', __FILE__ ));
         wp_enqueue_script( 'wp-angular-directives-menu', plugins_url( '/src/directives/wpMenu.js', __FILE__ ));
         
         // Make blog info availible as constant in angular
@@ -58,9 +59,10 @@ function myplugin_api_init() {
 add_action( 'wp_json_server_before_serve', 'myplugin_api_init' );
 
 function notice_api_not_active() {
+    $apiLink = "update.php?action=install-plugin&plugin=json-rest-api&_wpnonce=35d1ab4dcf";
     ?>
     <div class="error">
-        <p><?php _e( 'WP-angular can only work when JSON REST API is installed and activated', 'my-text-domain' ); ?></p>
+        <p><?php _e( 'WP-angular can only work when JSON REST API is installed and activated <a href="'.$apiLink.'">INSTALL</a>', 'my-text-domain' ); ?></p>
     </div>
     <?php
 }
