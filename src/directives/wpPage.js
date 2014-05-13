@@ -12,6 +12,10 @@ angular.module('wpAngular').directive("wpPage", function($log, $http, $sce, $com
 				$http.get(wpBloginfo.baseUrl + "/wp-json/pages/" + $attr.id).success(function(data){
 					$scope.page = data;
 				});
+			} else if($attr.slug){
+				$http.get(wpBloginfo.baseUrl + "/wp-json/pages/?filter[name]=" + $attr.slug).success(function(data){
+					$scope.page = data[0];
+				});
 			}
 
 			$scope.$watch('page', function(page) {

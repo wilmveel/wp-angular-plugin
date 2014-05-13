@@ -6,11 +6,11 @@
 /*
 Plugin Name: WP Angular
 Depends: json-rest-api/wp-api.js
-Plugin URI: http://youvee.nl/wp-angular/
-Description: This plugin allows you to build your templates in a angular way.
+Plugin URI: http://wp-angular.org/
+Description: This plugin allows you to build your templates in a AngularJS way.
 Author: Willem Veelenturf
-Version: 1.6
-Author URI: http://ma.tt/
+Version: 0.1
+Author URI: http://willemveelenturf.nl/
 */
 
 
@@ -59,7 +59,7 @@ function myplugin_api_init() {
 add_action( 'wp_json_server_before_serve', 'myplugin_api_init' );
 
 function notice_api_not_active() {
-    $apiLink = "update.php?action=install-plugin&plugin=json-rest-api&_wpnonce=35d1ab4dcf";
+    $apiLink = "plugin-install.php?tab=search&s=+JSON+REST+API+&plugin-search-input=Search+Plugins";
     ?>
     <div class="error">
         <p><?php _e( 'WP-angular can only work when JSON REST API is installed and activated <a href="'.$apiLink.'">INSTALL</a>', 'my-text-domain' ); ?></p>
