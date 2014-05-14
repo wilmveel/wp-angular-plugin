@@ -17,7 +17,8 @@ https://github.com/WP-API/WP-API
 
 Installation
 ------------
-Install the JSON REST API plugin and drop this directory in the plugins directory and activate it.
+- Install the JSON REST API plugin 
+- Drop this plugin in the plugins directory and activate it.
 
 Core
 ====
@@ -31,34 +32,7 @@ Directives
 ==========
 Directives allow you to create custom reusable components. This framework contains a set of directives which gives access to your wordpress content. These directives can be used to wirte your templates in a declarative way.
 
-wp-post/wp-posts
---------
-This directives gives access to your wordpress posts. The post will be loaded in an asynchronous way. For each post the following attributes are availible:
-
-- title : <String> the title of the post
-- content : <String> html representation of the post content. Use the ng-bind-html atribute to render as html
-- 
-
-````
-<div wp-posts>
-	<h1>{{post.title}}</h1>
-	<div ng-bind-html="post.content"></div>
-</div>
-````
-
-
-````
-<div wp-posts>
-	<wp-post>
-		<h1>{{title}}</h1>
-		<div ng-bind-html="content"></div>
-	<wp-post>
-</div>
-````
-
-wp-menu
--------
-This directive gives access to the menus in your template
+For a detailed documentation have a look at: http://wp-angular.org
 
 
 
